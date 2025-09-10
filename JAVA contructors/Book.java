@@ -21,6 +21,6 @@ class Book {
     }
 
     public void displayBook() {
-        System.out.println("Title: " + title + ", Author: " + author + ", Price: " + price);
+        System.out.println("Title : " + title + ", Author: " + author + ", Price: " + price);
     }
 }
