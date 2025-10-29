@@ -1,0 +1,92 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are inside the element's total width/height */
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f0f4f7;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #1c3d5a;
+}
+
+/* --- TEAM CONTAINER (Flexbox for 3-column layout) --- */
+.team-container {
+    /* Required: Use display: flex to align cards in one row */
+    display: flex; 
+    gap: 20px; /* Gap between cards */
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- TEAM CARD STYLING (Box Model, Borders, Shadows) --- */
+.team-card {
+    /* Calculates card width to fit 3 columns with gap */
+    width: calc(33.333% - 14px); 
+    min-width: 280px; /* Prevents cards from getting too small before the breakpoint */
+    
+    /* Required: Box Model - Uniform padding and margin */
+    padding: 20px; 
+    margin: 10px; /* Margin is also applied to each side, adding to the separation */
+    
+    background-color: #ffffff;
+    
+    /* Required: Borders, rounded corners, and shadow effects */
+    border: 1px solid #e0e0e0;
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.team-card h2 {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.team-card h3 {
+    font-size: 1em;
+    color: #6c757d;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+/* --- HIGHLIGHTED CARD STYLING --- */
+.highlighted-card {
+    /* Required: Highlight one card with different background color and border style */
+    background-color: #fffbe6; /* Light yellow background */
+    border: 3px dashed #ffc107; /* Orange dashed border */
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+}
+
+/* --- RESPONSIVE LAYOUT (Single column below 600px) --- */
+@media (max-width: 600px) {
+    /* Required: Layout must automatically adjust to a single column */
+    .team-container {
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center;
+    }
+
+    .team-card {
+        width: 90%; /* Take up most of the screen width */
+        min-width: 0; /* Remove min-width constraint */
+        margin: 10px 0; /* Adjust vertical margins */
+    }
+}

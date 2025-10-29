@@ -1,0 +1,127 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    color: #333;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+    background-color: #154360; /* Dark Blue */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #21618c; /* Medium Blue */
+    padding: 10px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    border-right: 1px solid #1a5276;
+}
+
+/* --- HEADINGS (Different Fonts) --- */
+header h1 {
+    font-size: 2.8em; /* Large heading */
+    font-weight: 900;
+}
+
+.full-section h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #b03a2e; /* Red accent */
+}
+
+.full-section h3 {
+    font-size: 1.8em;
+    font-weight: normal;
+    margin-bottom: 15px;
+    color: #f7f9f9; /* White text on parallax */
+}
+
+.full-section h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #145a32; /* Green accent */
+}
+
+/* --- SECTION STYLING (Padding, Margin, Border) --- */
+.full-section {
+    padding: 60px 5%; /* Padding for interior content */
+    margin-bottom: 30px; /* Margin to separate sections */
+    min-height: 400px;
+    color: #333; /* Default text color */
+    border-bottom: 4px solid #f0f0f0;
+}
+
+.section-padding {
+    /* Additional padding for parallax sections */
+    padding: 150px 5%; 
+}
+
+/* --- GRADIENTS --- */
+
+/* Radial Gradient Section */
+.radial-gradient-bg {
+    /* Required: Radial Gradient */
+    background: radial-gradient(circle at 10% 20%, #fef3e5 0%, #fcd6a4 100%); 
+}
+
+/* Linear Gradient Section */
+.linear-gradient-bg {
+    /* Required: Linear Gradient */
+    background: linear-gradient(to right, #eaf2f8, #d4e6f1);
+    border: 1px solid #aeb6bf;
+}
+
+/* --- PARALLAX EFFECT (Background Attachment: Fixed) --- */
+
+/* Parallax Background 1: Geography */
+.parallax-bg {
+    background-image: url('parallax-1.jpg'); /* Placeholder image */
+    /* Required: background-attachment: fixed */
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+/* Parallax Background 2: History */
+.parallax-bg2 {
+    background-image: url('parallax-2.jpg'); /* Another placeholder image */
+    /* Required: background-attachment: fixed */
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #34495e;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}

@@ -1,0 +1,130 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f7f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #34495e;
+    margin-bottom: 40px;
+}
+
+/* --- PRICING CONTAINER (Flexbox for 3 equal columns) --- */
+.pricing-container {
+    /* Required: Use flexbox to create three equal columns */
+    display: flex; 
+    justify-content: center;
+    align-items: stretch; /* Required: Ensures all boxes maintain equal height */
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Added for basic responsiveness */
+}
+
+/* --- PRICING PLAN STYLING --- */
+.pricing-plan {
+    flex-basis: 300px; /* Base width */
+    flex-grow: 1; /* Allows them to grow equally */
+    
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    
+    /* Required: CSS Transitions for smooth hover animation */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- HOVER EFFECT --- */
+.pricing-plan:hover {
+    /* Required: Slightly enlarges the box */
+    transform: scale(1.05); 
+    
+    /* Required: Changes background color */
+    background-color: #fcfcfc; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-plan h2 {
+    font-size: 1.8em;
+    color: #2980b9;
+    margin-bottom: 20px;
+}
+
+/* --- PRICE SECTION --- */
+.price-section {
+    margin-bottom: 20px;
+    padding: 15px 0;
+    border-top: 1px solid #ecf0f1;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.amount {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.currency, .period {
+    color: #7f8c8d;
+}
+
+/* --- FEATURE LIST --- */
+.features-list {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+    min-height: 150px; /* Set a minimum height to help maintain alignment before stretch */
+}
+
+.features-list li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #ecf0f1;
+    color: #555;
+}
+
+/* --- BUTTON STYLING (Styled link) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.basic-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.standard-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.premium-btn {
+    background-color: #8e44ad;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* --- HIGHLIGHTED PLAN STYLING --- */
+.popular {
+    /* Required: Highlight the most popular plan */
+    border: 4px double #e67e22; /* Different border style/color */
+    box-shadow: 0 15px 30px rgba(230, 126, 34, 0.2);
+    transform: scale(1.03); /* Slightly larger initially */
+}

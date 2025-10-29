@@ -1,0 +1,213 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /* Required: Outline property demonstration */
+    outline: 1px dashed rgba(255, 0, 0, 0.05); /* Visual aid for Box Model */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* --- HEADER (Sticky Position & Positioning) --- */
+.main-header {
+    /* Required: Sticky at top */
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    
+    background-color: #2c3e50; 
+    color: white;
+    padding: 15px 50px; /* Required: Padding */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    
+    /* Required: Relative positioning container for the absolute badge */
+    position: relative; 
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    /* Required: Margin */
+    margin-left: 20px; 
+    padding: 8px 10px;
+    /* Required: Border */
+    border-bottom: 2px solid transparent; 
+}
+
+.main-nav ul li a:hover {
+    border-color: #3498db;
+}
+
+.badge {
+    /* Required: Absolute positioning */
+    position: absolute; 
+    top: -5px;
+    right: 10px;
+    background-color: #e74c3c;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    /* Required: Large background image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 60vh; /* Required: vh unit */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Required: Centered welcome text */
+    text-align: center; 
+    color: white;
+}
+
+.hero-content h2 {
+    font-size: 3em;
+    /* Required: Margin */
+    margin-bottom: 10px; 
+}
+
+/* --- GENERAL SECTION STYLES --- */
+section {
+    padding: 60px 5%; /* Required: Padding */
+    /* Required: Margin (for spacing between sections) */
+    margin-bottom: 40px; 
+}
+
+/* --- ABOUT SECTION (Two Columns) --- */
+.about-section h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.two-column-layout {
+    /* Required: Flexbox for responsive alignment */
+    display: flex; 
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.column {
+    flex: 1; /* Equal width */
+    min-width: 300px;
+}
+
+.text-column {
+    /* Required: Relative positioning */
+    position: relative; 
+}
+
+.relative-box {
+    /* Demonstrate relative position moving the element */
+    position: relative;
+    top: 10px;
+    left: 20px;
+    background-color: rgba(52, 152, 219, 0.2); /* Required: rgba() color */
+    padding: 5px;
+    width: 150px;
+    text-align: center;
+    /* Required: Outline */
+    outline: 2px solid #3498db; 
+}
+
+.image-column img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* Required: Border */
+    border: 5px solid #bdc3c7; 
+}
+
+/* --- SERVICES SECTION (Three Boxes) --- */
+.services-section {
+    background: linear-gradient(to right, #ecf0f1, #ffffff); /* Required: Gradient */
+}
+
+.services-boxes {
+    /* Required: Flexbox for three boxes in a row */
+    display: flex; 
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 30px;
+    /* Required: Margin, Padding, Border */
+    margin: 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    text-align: center;
+}
+
+/* --- CONTACT SECTION --- */
+.contact-section {
+    text-align: center;
+    background-color: #f7f9fc;
+}
+
+.contact-form input {
+    padding: 10px;
+    margin: 10px; /* Required: Margin for spacing */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #333;
+    color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        height: auto;
+    }
+    .main-nav ul {
+        padding: 10px 0;
+    }
+    .two-column-layout, .services-boxes {
+        flex-direction: column;
+    }
+    .relative-box {
+        left: 0; /* Adjust relative position on mobile */
+    }
+}

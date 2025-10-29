@@ -1,0 +1,110 @@
+/* General reset for clean starting point */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* * Ensure the body and html take up at least the full viewport height 
+ * and use flexbox to push the footer to the bottom. 
+ */
+html, body {
+    min-height: 100vh; /* Using vh unit */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* Custom background/text colors maintaining contrast */
+    background-color: #f4f7f6; /* Light gray background */
+    color: #333333; /* Dark text for contrast */
+}
+
+/* --- HEADER STYLES (Fixed Position) --- */
+.main-header {
+    /* Required: position: fixed */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top */
+    
+    /* Using px unit for height and padding */
+    height: 60px; 
+    padding: 0 20px;
+    
+    background-color: #1a237e; /* Deep blue background */
+    color: #ffffff; /* White text */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo h1 {
+    font-size: 1.8rem; /* Using rem unit */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li a {
+    /* Using px unit for padding and text size */
+    padding: 10px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px; 
+    transition: background-color 0.3s;
+}
+
+.main-nav ul li a:hover {
+    background-color: #3f51b5; /* Lighter blue on hover */
+}
+
+/* --- MAIN CONTENT STYLES --- */
+.main-content {
+    /* Necessary padding-top to prevent content from being hidden under the fixed header */
+    padding-top: 60px; /* Same height as the header */
+    /* Using % width */
+    width: 80%; 
+    margin: 20px auto; /* Center main content */
+    flex-grow: 1; /* Allows main content to take up remaining vertical space */
+}
+
+.about-section {
+    padding: 20px;
+    border-left: 5px solid #1a237e;
+    background-color: #ffffff;
+}
+
+.profile-img {
+    width: 30%; /* Required: Using % unit */
+    height: auto;
+    display: block;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* --- FOOTER STYLES --- */
+.main-footer {
+    width: 100%;
+    /* Using px unit for padding and margin */
+    padding: 15px 0; 
+    margin-top: auto; /* Pushes the footer to the bottom */
+    
+    text-align: center;
+    background-color: #212121; /* Dark gray background */
+    color: #bdbdbd; /* Light gray text */
+    font-size: 14px; /* Using px unit */
+}
+
+.unit-example {
+    /* Using em unit for relative sizing within the footer text */
+    font-weight: bold;
+    font-size: 1.1em; 
+}

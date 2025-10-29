@@ -1,0 +1,88 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- BODY AND PAGE SETUP --- */
+body {
+    /* Required: Add background color to the page */
+    background-color: #e6e9ed; 
+    font-family: 'Georgia', serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.magazine-layout {
+    max-width: 1000px;
+    margin: 40px auto;
+    /* Required: Padding around the main content area */
+    padding: 30px; 
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- HEADLINE STYLES --- */
+.column-span-all {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+    
+    /* Required: Heading spans across all columns */
+    column-span: all; 
+}
+
+/* --- ARTICLE CONTENT (Column Structure) --- */
+.article-content {
+    /* Required: Create three vertical text columns */
+    column-count: 3; 
+    /* Required: Set column gap */
+    column-gap: 40px; 
+    
+    /* Required: Apply custom font styles */
+    font-size: 1.1em; 
+    
+    /* Required: Justify all text */
+    text-align: justify; 
+}
+
+.article-content p {
+    margin-bottom: 1.5em; /* Spacing between paragraphs */
+}
+
+/* --- FLOATED IMAGE --- */
+.float-left-img {
+    /* Required: Include at least one image aligned to the left using float */
+    float: left; 
+    width: 180px;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+/* --- RESPONSIVENESS (Ensuring readability) --- */
+@media (max-width: 768px) {
+    /* Reduce to two columns on smaller screens */
+    .article-content {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Reduce to single column on mobile */
+    .article-content {
+        column-count: 1;
+    }
+
+    .float-left-img {
+        /* Center image when in single column */
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+    }
+}
