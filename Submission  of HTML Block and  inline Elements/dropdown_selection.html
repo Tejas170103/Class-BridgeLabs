@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location and Travel Selection</title>
+</head>
+<body>
+    <h1>Travel Destination Planner</h1>
+
+    <form action="/submit-selections" method="get">
+        <p>
+            <label for="country">Select Country:</label>
+            <select id="country" name="country">
+                <option value="usa">United States</option>
+                <option value="canada" selected>Canada</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="state">Select State/Province:</label>
+            <select id="state" name="state">
+                <option value="on">Ontario</option>
+                <option value="bc" selected>British Columbia</option>
+                <option value="qc">Quebec</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="city">Select City:</label>
+            <select id="city" name="city">
+                <option value="toronto">Toronto</option>
+                <option value="vancouver" selected>Vancouver</option>
+                <option value="montreal">Montreal</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="place">Favorite Tourist Place:</label>
+            <select id="place" name="place">
+                <option value="museum">Art Gallery</option>
+                <option value="park" selected>Stanley Park</option>
+                <option value="market">Granville Island Market</option>
+            </select>
+        </p>
+        
+        <p><input type="submit" value="Confirm Choices"></p>
+    </form>
+    
+    <hr>
+    
+    <p>
+        **Summary of Choices:** You have pre-selected **Canada** as the country, 
+        **British Columbia** as the province, **Vancouver** as the city, and 
+        **Stanley Park** as the favorite tourist place.
+    </p>
+</body>
+</html>
