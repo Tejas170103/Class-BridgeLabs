@@ -1,0 +1,84 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', serif;
+    color: #444;
+    line-height: 1.7;
+    background-color: #f7f9fc;
+}
+
+.article-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* --- HEADER STYLES --- */
+header h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.article-info h2 {
+    font-size: 1em;
+    color: #7f8c8d;
+    font-weight: normal;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+/* --- PARAGRAPH STYLING (Margins, Pseudo-Elements) --- */
+.article-body p {
+    /* Required: Add consistent spacing between paragraphs */
+    margin-bottom: 25px; 
+    text-align: justify;
+}
+
+.article-body p::first-letter {
+    /* Required: Style the first letter of each paragraph */
+    font-size: 3em; 
+    font-weight: bold;
+    color: #c0392b; /* Red accent color */
+    float: left; /* Makes the letter sit nicely alongside the text */
+    margin-right: 10px;
+    line-height: 0.8;
+}
+
+.article-body p::first-line {
+    /* Required: Make the first line of each paragraph bold */
+    font-weight: bold; 
+    color: #333;
+}
+
+/* --- MARK TAG STYLING --- */
+mark {
+    /* Required: Highlight key words with custom background color */
+    background-color: #f1c40f; /* Yellow background */
+    color: #333;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* --- BLOCKQUOTE STYLING --- */
+blockquote {
+    /* Required: Add a left border and background color to emphasize the blockquote */
+    margin: 30px 0;
+    padding: 20px 20px 20px 40px;
+    background-color: #ecf0f1; /* Light gray background */
+    border-left: 5px solid #3498db; /* Blue left border */
+    font-style: italic;
+    color: #555;
+}
+
+blockquote p {
+    margin: 0; /* Remove extra margin from paragraph inside blockquote */
+}
