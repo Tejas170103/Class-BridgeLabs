@@ -1,0 +1,98 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, roc_curve, auc
+import joblib
+
+# Load dataset
+data = pd.read_csv('diabetes.csv')
+print(data.head())
+
+# Replace 0 values with mean in these columns
+cols_to_replace = ['Glucose', 'BloodPressure', 'BMI']
+for col in cols_to_replace:
+    data[col] = data[col].replace(0, np.nan)
+    data[col].fillna(data[col].mean(), inplace=True)
+
+# Check for missing values
+print("\nMissing Values:\n", data.isnull().sum())
+
+# Data types
+print("\nData Types:\n", data.dtypes)
+
+
+# Basic statistics
+print("\nData Description:\n", data.describe())
+
+# Correlation heatmap
+plt.figure(figsize=(8,6))
+sns.heatmap(data.corr(), annot=True, cmap='coolwarm')
+plt.title("Correlation Heatmap")
+plt.show()
+
+# Histograms
+data.hist(bins=10, figsize=(10,8))
+plt.show()
+
+# Features and target
+X = data.drop('Outcome', axis=1)
+y = data['Outcome']
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Scale features
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Naive Bayes
+nb = GaussianNB()
+nb.fit(X_train, y_train)
+y_pred_nb = nb.predict(X_test)
+
+# Logistic Regression
+lr = LogisticRegression(max_iter=200)
+lr.fit(X_train, y_train)
+y_pred_lr = lr.predict(X_test)
+
+# Accuracies
+print("Naive Bayes Accuracy:", accuracy_score(y_test, y_pred_nb))
+print("Logistic Regression Accuracy:", accuracy_score(y_test, y_pred_lr))
+
+# Confusion Matrices
+print("\nNaive Bayes Confusion Matrix:\n", confusion_matrix(y_test, y_pred_nb))
+print("\nLogistic Regression Confusion Matrix:\n", confusion_matrix(y_test, y_pred_lr))
+
+# Classification Report
+print("\nNaive Bayes Report:\n", classification_report(y_test, y_pred_nb))
+print("\nLogistic Regression Report:\n", classification_report(y_test, y_pred_lr))
+
+# ROC Curve
+fpr_nb, tpr_nb, _ = roc_curve(y_test, nb.predict_proba(X_test)[:,1])
+fpr_lr, tpr_lr, _ = roc_curve(y_test, lr.predict_proba(X_test)[:,1])
+
+plt.figure()
+plt.plot(fpr_nb, tpr_nb, label='Naive Bayes')
+plt.plot(fpr_lr, tpr_lr, label='Logistic Regression')
+plt.plot([0,1],[0,1],'k--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.legend()
+plt.show()
+
+# AUC Scores
+print("NB AUC:", auc(fpr_nb, tpr_nb))
+print("LR AUC:", auc(fpr_lr, tpr_lr))
+
+# Choose best model based on accuracy or AUC
+best_model = lr  # suppose LR performed better
+joblib.dump(best_model, 'diabetes_model.pkl')
+joblib.dump(scaler, 'scaler.pkl')
+print("Model saved successfully!")
