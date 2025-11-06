@@ -28,14 +28,17 @@ p {
     height: 600px;
     width: 300px;
     background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 30px;
 }
 
 .card:hover {
     transform: translateY(-30px);
     transition: 0.2s ease linear;
     border-top: 30px solid greenyellow;
-    border-top-right-radius: 5%;
-    border-top-left-radius: 5%;
+    
 }
 
 .card p,
@@ -44,9 +47,15 @@ span {
     background-color: aliceblue;
     color: black;
     margin: 20px;
+    
+    text-align: center;
 }
 
 
 span {
     font-size: small;
+}
+.btn:hover{
+    background-color: greenyellow;
+
 }
